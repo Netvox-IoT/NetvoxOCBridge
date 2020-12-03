@@ -11,6 +11,7 @@
 		22003E3825771C33000D6DCE /* NetvoxOCBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 22003E3325771C33000D6DCE /* NetvoxOCBridge.h */; };
 		22003E3925771C33000D6DCE /* NetvoxTar.h in Headers */ = {isa = PBXBuildFile; fileRef = 22003E3525771C33000D6DCE /* NetvoxTar.h */; };
 		22003E3A25771C33000D6DCE /* NetvoxTar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22003E3625771C33000D6DCE /* NetvoxTar.m */; };
+		22775FD12578662500198CD9 /* NetvoxOCBridge.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 22775FD02578662300198CD9 /* NetvoxOCBridge.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		22003E3325771C33000D6DCE /* NetvoxOCBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetvoxOCBridge.h; sourceTree = "<group>"; };
 		22003E3525771C33000D6DCE /* NetvoxTar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetvoxTar.h; sourceTree = "<group>"; };
 		22003E3625771C33000D6DCE /* NetvoxTar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetvoxTar.m; sourceTree = "<group>"; };
+		22775FD02578662300198CD9 /* NetvoxOCBridge.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = NetvoxOCBridge.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 		22003E1B25771BFF000D6DCE = {
 			isa = PBXGroup;
 			children = (
+				22775FD02578662300198CD9 /* NetvoxOCBridge.podspec */,
 				22003E2725771BFF000D6DCE /* NetvoxOCBridge */,
 				22003E2625771BFF000D6DCE /* Products */,
 			);
@@ -146,6 +149,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22775FD12578662500198CD9 /* NetvoxOCBridge.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

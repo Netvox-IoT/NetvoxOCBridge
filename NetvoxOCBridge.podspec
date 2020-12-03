@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "NetvoxOCBridge"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.3"
   spec.summary      = "A short description of NetvoxOCBridge."
 
   # This description is used to generate tags and improve search results.
@@ -91,10 +91,14 @@ NetvoxOCBridge
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "NetvoxOCBridge/Sources/*.{h,m}", "NetvoxOCBridge/Sources/**"
+  spec.source_files  = "NetvoxOCBridge/Sources/*.{h,m}"
   spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
+
+  spec.subspec "NetvoxTar" do |tar|
+    tar.source_files = "NetvoxOCBridge/Sources/NetvoxTar/*.{h,m}"
+  end
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

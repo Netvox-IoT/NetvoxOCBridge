@@ -2,7 +2,10 @@
 
 @implementation NetvoxOCBridge
 
-+ (NSData *)convertHexStrToData:(NSString *)str {
+/**
+ 十六进制字符串转换成 Data 数据。
+ */
++ (NSData*)convertHexStrToData:(NSString*)str {
     if (!str || [str length] == 0) {
         return nil;
     }
@@ -29,6 +32,58 @@
     
     
     return hexData;
+}
+
+/**
+ tar 文件解压。
+ */
++(BOOL)tarDecompress:(NSData*)data Path:(NSString*)path
+{
+    return [NetvoxTar untarData:data toPath:path error:nil];
+}
+
+/**
+ tar 文件压缩。
+ */
++(BOOL)tarCompress:(NSString*)tarFromPath Topath:(NSString*)path
+{
+    return [NetvoxTar tarFileAtPath:tarFromPath toPath:path error:nil];
+}
+
+/**
+ gzip 文件解压。
+ */
++(NSData*)gzipDecompress:(NSData*)data
+{
+    return [NetvoxTar gzipDecompress:data];
+}
+
+/**
+ gzip 文件压缩。
+ */
++(NSData*)gzipCompress:(NSData*)data
+{
+    return [NetvoxTar gzipCompress:data];
+}
+
+/**
+ 十六进制异或解密。
+ */
++(void)xorDecode:(NSData*)file andIntoPath:(NSString*)path
+{
+    Byte *code = (Byte*)[[@"NeTvOx" dataUsingEncoding:NSUTF8StringEncoding] bytes];
+    //遍历byte
+    [file enumerateByteRangesUsingBlock:^(const void * _Nonnull bytes, NSRange byteRange, BOOL * _Nonnull stop) {
+        unsigned char *dataBytes = (unsigned char*)bytes;
+        //异或加密
+        for (NSInteger i = 0; i < byteRange.length; i++) {
+            dataBytes[i] = dataBytes[i]^code[i%6];
+        }
+        NSData *dat = [NSData dataWithBytes:dataBytes length:byteRange.length];
+        NSFileManager *manager = [NSFileManager defaultManager];
+        [manager createFileAtPath:path contents:dat attributes:nil];
+        
+    }];
 }
 
 @end

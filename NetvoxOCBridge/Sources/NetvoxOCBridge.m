@@ -3,7 +3,7 @@
 @implementation NetvoxOCBridge
 
 /**
- 十六进制字符串转换成 Data 数据。
+ 十六进制字符串转换成 NSData 数据。
  */
 + (NSData*)convertHexStrToData:(NSString*)str {
     if (!str || [str length] == 0) {
@@ -29,9 +29,24 @@
         range.location += range.length;
         range.length = 2;
     }
-    
-    
     return hexData;
+}
+
+/**
+ NSData 变成不带 <> 和空格的字符串。
+ */
++(NSString*)convertNSDataToNSString:(NSData*)data
+{
+    NSMutableString *strTemp = [NSMutableString stringWithCapacity:[data length]*2];
+    
+    const unsigned char *szBuffer = [data bytes];
+
+    for (NSInteger i=0; i < [data length]; ++i) {
+        
+        [strTemp appendFormat:@"%02lx",(unsigned long)szBuffer[i]];
+        
+    }
+    return strTemp;
 }
 
 /**

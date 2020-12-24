@@ -4,9 +4,14 @@
 @interface NetvoxOCBridge : NSObject
 
 /**
- 十六进制字符串转换成 Data 数据。
+ 十六进制字符串转换成 NSData 数据。
  */
 +(NSData*)convertHexStrToData:(NSString*)str;
+
+/**
+ NSData 变成不带 <> 和空格的字符串。
+ */
++(NSString*)convertNSDataToNSString:(NSData*)data;
 
 /**
  tar 文件解压。

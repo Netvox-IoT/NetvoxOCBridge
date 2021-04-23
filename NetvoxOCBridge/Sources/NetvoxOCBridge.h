@@ -38,4 +38,9 @@
  */
 +(void)xorDecode:(NSData*)file andIntoPath:(NSString*)path;
 
+/**
+ crc16 转换。
+ */
++(int16_t)crc16With:(NSData*)data;
+
 @end
